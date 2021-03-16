@@ -4,9 +4,9 @@ import { action } from '@ember/object';
 
 export default class Step1Controller extends Controller {
   dispoItems = [];
-  @tracked dispoItems_ = [];
   includedItems = [];
   @tracked includedItems_ = [];
+  @tracked dispoItems_ = [];
 
   @action changeDispo(elements) {
     this.dispoItems_ = elements;

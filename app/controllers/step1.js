@@ -19,5 +19,12 @@ export default class Step1Controller extends Controller {
   @action add(source, dest, what) {
     dest.addObjects(what);
     source.removeObjects(what);
+    this.includedItems_=what;
+  }
+
+  @action remove(source, dest, what) {
+    dest.addObjects(what);
+    source.removeObjects(what);
+    this.dispoItems_=what;
   }
 }

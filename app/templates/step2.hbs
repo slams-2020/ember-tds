@@ -1,0 +1,10 @@
+{{page-title "Step2"}}
+<h1>Votre selection</h1>
+<LinkTo class="btn btn-primary" @route="step1">Retour</LinkTo>
+<ul>
+  {{#each @model as |item|}}
+    <li> <img class="w-25 p-3" src="{{item.image}}"> {{item.title}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}

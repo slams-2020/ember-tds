@@ -1,19 +1,34 @@
 {{page-title "Step1"}}
 <div class="panel">
   <div class="row">
-    <div class="col-sm">
-<MultiSelect @elements={{this.dispoItems}}
+    <div class="col-sm-5">
+<MultiSelect @elements={{this.dispoItems}} @selected={{this.dispoItems_}}
              @onChange={{this.changeDispo}} class="form-control"/>
     </div>
-    <div class="col-sm">
-      <button {{action "add" this.dispoItems this.includedItems this.dispoItems_}}class="btn btn-primary">
+    <div class="col-sm-auto">
+      <button {{action "add" this.dispoItems this.includedItems this.dispoItems_}} class="btn btn-primary d-block">
         <i class="fas fa-forward"></i>
       </button>
-    </div>
-    <div class="col-sm">
-  <MultiSelect @elements={{this.includedItems}}
+      <button {{action "add" this.dispoItems this.includedItems this.dispoItems}} class="btn btn-primary d-block">
+        <i class="fas fa-fast-forward"></i>
+      </button>
+    <button {{action "remove" this.includedItems this.dispoItems  this.includedItems_}} class="btn btn-primary d-block">
+      <i class="fas fa-backward"></i>
+    </button>
+    <button {{action "remove" this.includedItems this.dispoItems this.includedItems}} class="btn btn-primary d-block">
+      <i class="fas fa-fast-backward"></i>
+    </button>
+  </div>
+    <div class="col-sm-5">
+  <MultiSelect @elements={{this.includedItems}} selected={{this.includedItems_}}
                @onChange={{this.changeIncluded}} class="form-control"/>
     </div>
   </div>
 </div>
+<ul>
+  {{#each this.dispoItems_ as |item|}}
+    <li>{{item.title}}</li>
+  {{/each}}
+</ul>
+<LinkTo class="btn btn-primary" @route="step2">Step2</LinkTo>
 {{outlet}}
